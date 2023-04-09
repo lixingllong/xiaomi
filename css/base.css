@@ -1,0 +1,27 @@
+/* 公共样式 */
+body {
+    font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+    color: #333;
+    background-color: #fff;
+    min-width: 1226px;
+    height: 3200px;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+img {
+    vertical-align: middle;
+    width: 100%;
+}
+.w {
+    width: 1226px;
+    margin: 0 auto;
+}
+/* 清除浮动 高度塌陷 */
+.clearfix::before,
+.clearfix::after {
+    content: '';
+    display: table;
+    clear: both;
+}

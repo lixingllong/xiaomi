@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul {
+            list-style: none;
+        }
+        img {
+            width: 100%;
+        }
+      
+        .img-list li {
+            width: 1000px;
+            height: 500px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            margin: auto;
+            position: absolute;
+        }
+        .current {
+            z-index: 12;
+        }
+        .prev,.next {
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            background-color: #bfa;
+            text-align: center;
+            cursor: pointer;
+        }
+        .prev {
+            position: relative;
+            top: 350px;
+            left: 360px;
+            z-index: 999;
+        }
+        .next {
+            position: relative;
+            top: 300px;
+            left: 1300px;
+            z-index: 999;
+        }
+    </style>
+</head>
+<body>
+    <ul class="img-list">
+        <li class="current"><a href="javascript:;"><img src="./images/002.png"></a></li>
+        <li><a href="javascript:;"><img src="./images/003.png"></a></li>
+        <li><a href="javascript:;"><img src="./images/004.png"></a></li>
+        <li><a href="javascript:;"><img src="./images/006.png"></a></li>
+    </ul>
+    <div class="prev-next">
+        <div class="prev"><</div>
+        <div class="next">></div>
+    </div>
+    <script>
+       const toggleChange = (function () {
+         let timer =null
+            return ()=>{
+                  timer = setTimeout(function auto(){
+              clearTimeout(timer)
+            const current = document.querySelector(".current")
+            const a = current.nextElementSibling || document.getElementsByTagName("li")[0]
+            current.classList.remove("current")
+            a.classList.add("current")
+            setTimeout(auto, 2000)
+        },2000)
+            }
+       })
+        const btn = document.querySelector(".prev")
+        const btns = document.querySelector(".next")
+        btn.addEventListener("click",()=>{
+            clearTimeout(timer)
+            const current = document.querySelector(".current")
+            const b = current.nextElementSibling("li.lastChild")
+            current.classList.remove("current")
+            b.classList("current")
+        })
+        btns.addEventListener("click",()=>{
+            clearTimeout(timer)
+            const current = document.querySelector(".current")
+            const a = current.nextElementSibling || document.getElementsByTagName("li")[0]
+            current.classList.remove("current")
+            a.classList.add("current")
+        })
+    </script>
+</body>
+</html>
